@@ -18,7 +18,7 @@ IMAGE: the docker image. this is required and there is no default value.
 ```
 Optional Arguments:
 ```
-Name: the name of the container. default value is `redoContainer`
+NAME: the name of the container. default value is `redoContainer`
 ARGS: the docker run arguments. default value is `-d`
 ```
 
@@ -41,9 +41,3 @@ recreate the container
 ## Authors
 
 * **Zachary Spofford** - *Initial work* - [Spoofardio](https://github.com/Spoofardio)
-
-See also the list of [contributors](https://github.com/spoofardio/recommendation-service/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
