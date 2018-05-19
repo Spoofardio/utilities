@@ -14,11 +14,11 @@ source docker-redo.sh -n <NAME> -r "<ARGS>" -i <IMAGE>
 ```
 Required Arguments:
 ```
-IMAGE: the docker image. this is required and there is no default value.
+IMAGE(-i, --image): the docker image. this is required and there is no default value.
 ```
 Optional Arguments:
 ```
-NAME: the name of the container. default value is `redoContainer`
+NAME(-n, --name: the name of the container. default value is `redoContainer`
 ARGS: the docker run arguments. default value is `-d`
 ```
 

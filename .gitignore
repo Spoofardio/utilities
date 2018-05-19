@@ -1,0 +1,3 @@
+/k8-builder/target
+/k8-builder/*.yaml
+/k8-builder/*.conf
