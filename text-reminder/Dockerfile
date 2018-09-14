@@ -8,4 +8,3 @@ RUN go get github.com/jasonlvhit/gocron
 RUN go get github.com/sfreiberg/gotwilio
 RUN go build -o main
 CMD ["./main"]
-
