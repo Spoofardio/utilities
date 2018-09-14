@@ -1,5 +1,5 @@
 #!/bin/bash
-usage="use like this: \$source docker-redo.sh -n NAME -r \"ARG ARG\" -i IMAGE"
+usage="use like this: \$ ./docker-redo.sh -n NAME -r \"ARG ARG\" -i IMAGE"
 arg_error="ERROR: invalid arguments. for help run \$source docker-redo.sh -h"
 image_error="ERROR: you must specify an image"
 

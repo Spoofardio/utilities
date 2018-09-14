@@ -1,3 +1,9 @@
+# K8 BUILDER
+
 /k8-builder/target
 /k8-builder/*.yaml
 /k8-builder/*.conf
+
+
+# TEXT REMINDER #
+/text-reminder/config.go
