@@ -1,6 +1,6 @@
 # Text Reminder
 
-This program sends a text at the same time each day.
+This program sends a amazing cat fact in version 2. at the same time each day.
 
 ## Getting Started
 
@@ -19,10 +19,11 @@ const message = ""       // message to send
 ## Build Docker
 
 ```
-docker build -t spoofardio/text-reminder:1.0.0 .
+docker build -t registry.spofcloud.com/text-reminder:2.0.0 .
+
 ```
 
 ```
 docker run -d --restart=unless-stopped /
---name=text-reminder spoofardio/text-reminder:1.0.0
+--name=text-reminder registry.spofcloud.com/text-reminder:2.0.0
 ```
