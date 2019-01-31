@@ -34,9 +34,9 @@ func buildTemplateWithConfig(config string, template string)  string {
 	for configScanner.Scan() {
 		line := configScanner.Text()
 		if line[0] != '#' {
-			keyValue := strings.Split(line, "=")
-			key := fmt.Sprintf("{{%s}}", keyValue[0])
-			value := keyValue[1]
+			i := strings.Index(line, "=")
+			key := fmt.Sprintf("{{%s}}", line[:i])
+			value := line[i+1:]
 			output = strings.Replace(template, key, value, -1)
 		}
 	}
