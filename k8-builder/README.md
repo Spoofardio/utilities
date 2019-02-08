@@ -7,8 +7,15 @@ Create Yaml files from combining template and config files
 
 ### General Form
 This will create a filled out yaml file at `target/example_dev.yaml`
+
+if main points to p1()
 ```
 go run main.go example.yaml example_dev.conf
+```
+
+if main points to p2()
+```
+go run main.go v0.1 staging
 ```
 
 ### Example

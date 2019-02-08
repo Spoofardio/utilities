@@ -4,12 +4,16 @@ import (
 	"bufio"
 	"fmt"
 	"io/ioutil"
+	"log"
 	"os"
 	"strings"
 )
 
-// Entry point for the program
 func main() {
+	p2()
+}
+
+func p1() {
 	templateFile := os.Args[1]
 	configFile := os.Args[2]
 
@@ -21,27 +25,32 @@ func main() {
 	fmt.Println("Configuration File: " + configFile)
 
 	output := buildTemplateWithConfig(config, template)
-	outputFile := createOutputFile(templateFile, output)
+	outputFile := createOutputFile("target/"+templateFile, output)
 
 	fmt.Println("Output File: " + outputFile)
 
 }
 
-// func main() {
-// 	release := os.Args[1]
-// 	configFile := os.Args[2] + ".conf"
-// 	config := getFileContents(configFile)
-// 	buildOutputFolder("target/")
-// 	files, err := ioutil.ReadDir("./" + release + "/")
+func p2() {
+	release := os.Args[1]
+	configFile := release + "/" + os.Args[2] + ".conf"
+	config := getFileContents(configFile)
+	buildOutputFolder("target/")
+	buildOutputFolder("target/" + release + "/")
+	files, err := ioutil.ReadDir("./" + release + "/")
 
-// 	if err != nil {
-// 		log.Fatal(err)
-// 	}
+	if err != nil {
+		log.Fatal(err)
+	}
 
-// 	for _, f := range files {
-// 		fmt.Println(f.Name())
-// 	}
-// }
+	for _, f := range files {
+		if !strings.Contains(f.Name(), ".conf") {
+			fmt.Println(f.Name())
+			output := buildTemplateWithConfig(config, getFileContents(release+"/"+f.Name()))
+			createOutputFile("target/"+release+"/"+f.Name(), output)
+		}
+	}
+}
 
 // Returns a string of the filled out template
 func buildTemplateWithConfig(config string, template string) string {
@@ -61,19 +70,13 @@ func buildTemplateWithConfig(config string, template string) string {
 
 // Creates the yaml file and saves it in the output folder.
 func createOutputFile(file string, contents string) string {
-	fileName := file[0 : len(file)-5]
-	if strings.Contains(fileName, "/") {
-		fileName = file[strings.LastIndex(fileName, "/")+1 : len(file)-5]
-	}
-	fileType := file[len(file)-4:]
-	filePath := fmt.Sprintf("target/%s.%s", fileName, fileType)
-	os.Remove(filePath)
-	err := ioutil.WriteFile(filePath, []byte(contents), 0644)
+	os.Remove(file)
+	err := ioutil.WriteFile(file, []byte(contents), 0644)
 	if err != nil {
-		fmt.Println("Failed to save generated file: " + filePath)
+		fmt.Println("Failed to save generated file: " + file)
 		os.Exit(0)
 	}
-	return filePath
+	return file
 }
 
 // Creates the output folder where all finished yaml files will be put.
