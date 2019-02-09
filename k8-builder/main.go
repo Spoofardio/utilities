@@ -10,28 +10,10 @@ import (
 )
 
 func main() {
-	p2()
+	generateRelease()
 }
 
-func p1() {
-	templateFile := os.Args[1]
-	configFile := os.Args[2]
-
-	template := getFileContents(templateFile)
-	config := getFileContents(configFile)
-	buildOutputFolder("target/")
-
-	fmt.Println("Template File: " + templateFile)
-	fmt.Println("Configuration File: " + configFile)
-
-	output := buildTemplateWithConfig(config, template)
-	outputFile := createOutputFile("target/"+templateFile, output)
-
-	fmt.Println("Output File: " + outputFile)
-
-}
-
-func p2() {
+func generateRelease() {
 	release := os.Args[1]
 	configFile := release + "/" + os.Args[2] + ".conf"
 	config := getFileContents(configFile)
