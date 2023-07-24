@@ -24,6 +24,5 @@ docker build -t registry.spofcloud.com/text-reminder:2.0.0 .
 ```
 
 ```
-docker run -d --restart=unless-stopped /
---name=text-reminder registry.spofcloud.com/text-reminder:2.0.0
+docker run -d --restart=unless-stopped --name=text-reminder registry.spofcloud.com/text-reminder:2.0.0
 ```

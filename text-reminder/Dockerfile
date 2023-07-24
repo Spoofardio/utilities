@@ -1,10 +1,9 @@
-FROM golang:1.11.0
+FROM golang:1.20.6
 
 RUN mkdir /app 
 ADD . /app/
 WORKDIR /app 
 
-RUN go get github.com/jasonlvhit/gocron
-RUN go get github.com/sfreiberg/gotwilio
+RUN go install
 RUN go build -o main
 CMD ["./main"]
